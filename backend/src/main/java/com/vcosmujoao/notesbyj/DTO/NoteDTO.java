@@ -1,34 +1,32 @@
-package com.vcosmujoao.notesbyj.entity;
+package com.vcosmujoao.notesbyj.DTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.vcosmujoao.notesbyj.DTO.NoteDTO;
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
+import com.vcosmujoao.notesbyj.entity.Note;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "notes")
-public class Note {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class NoteDTO {
     private Long id;
     private String titulo;
     private String descricao;
-    @Column(name = "data_criacao")
-    @CreationTimestamp
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime dataCriacao;
 
-    public Note() {
-    }
-
-    public Note(Long id, String titulo, String descricao, LocalDateTime dataCriacao) {
+    public NoteDTO(Long id, String titulo, String descricao, LocalDateTime dataCriacao) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataCriacao = dataCriacao;
+    }
+
+    public NoteDTO() {
+    }
+    public NoteDTO(Note entity){
+        this.id = entity.getId();
+        this.titulo = entity.getTitulo();
+        this.descricao = entity.getDescricao();
+        this.dataCriacao = entity.getDataCriacao();
+        this.dataCriacao = entity.getDataCriacao();
     }
 
     public Long getId() {
