@@ -1,4 +1,4 @@
-export interface Note {
+export class Note {
   id: number;
   titulo: string;
   descricao: string;
