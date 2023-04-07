@@ -1,0 +1,9 @@
+<form [formGroup]="noteForm">
+    <label for="titulo">Título:</label>
+    <input type="text" formControlName="titulo">
+
+    <label for="descricao">Descrição:</label>
+    <input type="text" formControlName="descricao">
+
+    <button (click)="saveNewNote()" type="submit" [disabled]="!noteForm.valid">Salvar</button>
+</form>
