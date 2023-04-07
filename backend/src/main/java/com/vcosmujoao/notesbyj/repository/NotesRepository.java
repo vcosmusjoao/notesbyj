@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface NotesRepository extends JpaRepository<Note,Long> {
 
-    @Query("SELECT n FROM Note n ORDER BY n.id")
+    @Query("SELECT n FROM Note n ORDER BY n.dataCriacao DESC")
     Page<Note> findAll(Pageable pageable);
 
 }
