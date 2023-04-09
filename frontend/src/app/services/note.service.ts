@@ -22,4 +22,12 @@ export class NoteService {
     return this.httpClientService.post(this.baseUrl, note);
   }
 
+  updateNote(note: Note): Observable<any> {
+    return this.httpClientService.put(this.baseUrl + '/' + note.id, note);
+  }
+
+  getNoteById(id: number): Observable<any> {
+    return this.httpClientService.get(this.baseUrl + '/' + id);
+  }
+
 }
