@@ -12,6 +12,7 @@ import { CreateNoteModalComponent } from '../create-note-modal/create-note-modal
 export class NoteComponent implements OnInit {
 
   notes: Note[] = [];
+  selectedNote: Note;
 
   constructor(private noteService: NoteService, public dialogService: DialogService) { }
 
@@ -35,4 +36,16 @@ export class NoteComponent implements OnInit {
     })
   }
 
+
+  openNoteModal(note: Note) {
+    this.selectedNote = note;
+    const ref = this.dialogService.open(CreateNoteModalComponent, {
+      width: '40%',
+      height: '70%',
+      data: {note: this.selectedNote}
+    });
+    ref.onClose.subscribe(() => {
+      this.getAllNotes();
+    });
+  }
 }
