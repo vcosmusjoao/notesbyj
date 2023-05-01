@@ -1,4 +1,4 @@
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Note } from './../../models/note';
 import { NoteService } from './../../services/note.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,14 +7,19 @@ import { CreateNoteModalComponent } from '../create-note-modal/create-note-modal
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
-  styleUrls: ['./note.component.css']
+  styleUrls: ['./note.component.css'],
+  providers:[DynamicDialogRef]
 })
 export class NoteComponent implements OnInit {
 
   notes: Note[] = [];
   selectedNote: Note;
 
-  constructor(private noteService: NoteService, public dialogService: DialogService) { }
+  constructor(
+    private noteService: NoteService,
+    private dialogService: DialogService,
+    private ref: DynamicDialogRef // injeta o DynamicDialogRef
+  ) { }
 
   ngOnInit(): void {
    this.getAllNotes();
@@ -47,5 +52,15 @@ export class NoteComponent implements OnInit {
     ref.onClose.subscribe(() => {
       this.getAllNotes();
     });
+  }
+
+  deleteNoteModal(note: Note){
+    const noteId = note.id
+    if(confirm('Tem certeza que deseja excluir essa nota?')){
+      this.noteService.deleteNote(noteId).subscribe(()=>{
+        this.ref.close();
+        this.getAllNotes();
+      })
+    }
   }
 }
