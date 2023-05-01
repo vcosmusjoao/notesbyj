@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DynamicDialogRef, DialogService, DynamicDialogConfig} from 'primeng/dynamicdialog';
+import { DynamicDialogRef, DynamicDialogConfig} from 'primeng/dynamicdialog';
 import { NoteService } from 'src/app/services/note.service';
 import { Note } from 'src/app/models/note';
 

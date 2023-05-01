@@ -30,4 +30,8 @@ export class NoteService {
     return this.httpClientService.get(this.baseUrl + '/' + id);
   }
 
+  deleteNote(id:number){
+    return this.httpClientService.delete(this.baseUrl+'/'+id);
+  }
+
 }
