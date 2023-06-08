@@ -29,7 +29,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/google-fonts-webpack-plugin/google-fonts-plugin.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,7 +101,9 @@
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/google-fonts-webpack-plugin/google-fonts-plugin.js"
+            ]
           }
         }
       }

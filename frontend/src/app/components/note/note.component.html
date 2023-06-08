@@ -8,8 +8,10 @@
               <h2 class="note-title">{{ note.titulo }}</h2>
               <p class="note-description">{{ note.descricao }}</p>
               <p class="note-date">{{ note.dataCriacao}}</p>
-              <button (click)="openNoteModal(note)">Editar</button>
-              <button (click)="deleteNoteModal(note)">Excluir</button>
+              <div class="button-container">
+                <button (click)="openNoteModal(note)">Editar</button>
+                <button (click)="deleteNoteModal(note)">Excluir</button>
+              </div>
             </div>
           </div>
           <button (click)="createNoteModal()">Create New Note</button>

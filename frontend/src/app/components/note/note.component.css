@@ -5,7 +5,6 @@
   padding: 20px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   background-color: rgb(65,88,102);
@@ -21,7 +20,7 @@
 .note {
   background-color: #fff;
   width: 200px;
-  height: 200px;
+  height: 250px; /* Altura fixa para todas as notas */
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -30,21 +29,47 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  flex-shrink: 0;
 }
 
+
+
 .note-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
+  height: 80px; /* Altura fixa para o título */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Define o número máximo de linhas permitidas */
+  -webkit-box-orient: vertical;
 }
 
 .note-description {
   font-size: 14px;
   text-align: center;
+  height: 130px; /* Altura fixa para a descrição */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Define o número máximo de linhas permitidas */
+  -webkit-box-orient: vertical;
 }
 
 .note-date {
   font-size: 12px;
   text-align: center;
+  text-decoration: underline;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.note-button {
+  flex: 1; /* Ocupa a largura disponível igualmente entre os botões */
 }

@@ -3,7 +3,7 @@
     <input type="text" formControlName="titulo">
 
     <label for="descricao">Descrição:</label>
-    <input type="text" formControlName="descricao">
+    <textarea formControlName="descricao"  rows="8" cols="50"></textarea>
 
     <button (click)="saveNote()" [disabled]="!noteForm.valid">Salvar</button>
 </form>
